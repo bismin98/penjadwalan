@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #121a1b;
+  --muted: #4a5a5c;
+  --sand: #f7f1e6;
+  --paper: #fffaf2;
+  --brass: #c1813a;
+  --sea: #2d6a6f;
+  --shadow: 0 20px 45px rgba(18, 26, 27, 0.16);
+  --font-sans: var(--font-space);
+  --font-display: var(--font-playfair);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--sand);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-space);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top left, #f6e6cf 0%, transparent 45%),
+    radial-gradient(circle at 20% 80%, #d7efe9 0%, transparent 50%),
+    linear-gradient(135deg, #fef7ea 0%, #f5efe2 55%, #eff4f0 100%);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display), "Times New Roman", serif;
+}
+
+.surface {
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  border-color: rgba(18, 26, 27, 0.18);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.field:focus {
+  outline: 2px solid rgba(193, 129, 58, 0.55);
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-backdrop {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-panel {
+  animation: scaleIn 0.2s ease-out;
 }
