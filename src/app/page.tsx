@@ -22,7 +22,7 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-black/10 bg-white/80 p-6 backdrop-blur">
+            <div className="rounded-3xl border border-black/10 bg-white/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-white/60">
               <div className="flex h-full flex-col justify-between gap-6">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.25em] text-[var(--sea)]">

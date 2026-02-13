@@ -19,12 +19,16 @@
 }
 
 body {
+  /* Safari fallback background */
+  background: #f5efe2;
   background: radial-gradient(circle at top left, #f6e6cf 0%, transparent 45%),
     radial-gradient(circle at 20% 80%, #d7efe9 0%, transparent 50%),
     linear-gradient(135deg, #fef7ea 0%, #f5efe2 55%, #eff4f0 100%);
   color: var(--ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
+  /* Prevent rubber band scrolling on Safari iOS */
+  overscroll-behavior-y: none;
 }
 
 .font-display {
@@ -39,11 +43,41 @@ body {
 .field {
   border-color: rgba(18, 26, 27, 0.18);
   background: rgba(255, 255, 255, 0.75);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .field:focus {
   outline: 2px solid rgba(193, 129, 58, 0.55);
   outline-offset: 2px;
+}
+
+/* Safari date input support */
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+/* Safari backdrop-blur support */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Smooth scrolling for Safari */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @keyframes fadeIn {
