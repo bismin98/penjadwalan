@@ -39,14 +39,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#2d6a6f" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${playfair.variable} ${spaceGrotesk.variable} antialiased`}>
+      <body 
+        className={`${playfair.variable} ${spaceGrotesk.variable} antialiased`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
