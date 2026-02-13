@@ -522,29 +522,29 @@ export default function AdminPanel() {
               </div>
             </form>
 
-            <section className="rounded-3xl border border-black/10 bg-white/70 p-6">
+            <section className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6">
               <div className="flex h-full flex-col gap-0">
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                     Hasil input jadwal
                   </p>
-                  <h2 className="font-display text-2xl">Preview Jadwal</h2>
-                  <p className="text-sm text-(--muted)">
+                  <h2 className="font-display text-lg sm:text-2xl">Preview Jadwal</h2>
+                  <p className="text-xs sm:text-sm text-(--muted)">
                     Pilih salah satu jadwal untuk melihat detailnya.
                   </p>
                 </div>
-                <div className="flex flex-col flex-1 gap-4 mt-6">
-                  <div className="space-y-4 rounded-2xl border border-black/10 bg-white/80 p-5 flex-1">
+                <div className="flex flex-col flex-1 gap-3 sm:gap-4 mt-4 sm:mt-6">
+                  <div className="space-y-3 sm:space-y-4 rounded-xl sm:rounded-2xl border border-black/10 bg-white/80 p-3 sm:p-5 flex-1">
                   {jadwalList.length === 0 ? (
-                    <p className="text-sm text-(--muted)">
+                    <p className="text-xs sm:text-sm text-(--muted)">
                       Belum ada jadwal tersimpan.
                     </p>
                   ) : (
-                    <div className="space-y-5">
+                    <div className="space-y-3 sm:space-y-5">
                       {sortedGroupKeys.map((groupKey) => (
-                        <div key={groupKey} className="space-y-3">
+                        <div key={groupKey} className="space-y-2 sm:space-y-3">
                           <div
-                            className={`flex items-center justify-between rounded-2xl border px-4 py-3 ${
+                            className={`flex items-center justify-between rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 ${
                               groupKey === currentMonthKey
                                 ? "border-(--sea)/50 bg-(--sea)/10"
                                 : "border-black/10 bg-white/70"
@@ -559,7 +559,7 @@ export default function AdminPanel() {
                               </span>
                             </div>
                             <button
-                              className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground"
+                              className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-foreground"
                               type="button"
                               onClick={() =>
                                 setCollapsedGroups((prev) => ({
@@ -580,36 +580,36 @@ export default function AdminPanel() {
                             </button>
                           </div>
                           {!collapsedGroups[groupKey] ? (
-                            <div className="space-y-3">
+                            <div className="space-y-2 sm:space-y-3">
                               {(sortedGroupedJadwal.find(
                                 ([key]) => key === groupKey
                               )?.[1] ?? []).map((item) => (
                               <div
                                 key={item.id}
-                                className={`flex items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                                className={`flex items-center justify-between gap-2 sm:gap-3 rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-left text-xs sm:text-sm transition ${
                                   selectedId === item.id
                                     ? "border-black/30 bg-white"
                                     : "border-black/10 bg-white/60 hover:border-black/30"
                                 }`}
                               >
                                 <button
-                                  className="flex-1 text-left"
+                                  className="flex-1 text-left min-w-0"
                                   type="button"
                                   onClick={() => {
                                     setSelectedId(item.id);
                                     setIsDetailOpen(true);
                                   }}
                                 >
-                                  <p className="font-semibold text-foreground">
+                                  <p className="font-semibold text-foreground truncate">
                                     {item.namaKegiatan || "(Tanpa judul)"}
                                   </p>
-                                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-(--muted)">
+                                  <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-(--muted)">
                                     {formatTanggal(item.tanggalKegiatan)}
                                   </p>
                                 </button>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                                   <button
-                                    className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-(--sea) transition hover:border-black/30"
+                                    className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-black/10 text-(--sea) transition hover:border-black/30"
                                     type="button"
                                     aria-label="Edit jadwal"
                                     onClick={() => {
@@ -625,10 +625,10 @@ export default function AdminPanel() {
                                       setSelectedId(item.id);
                                     }}
                                   >
-                                    <Icon icon="mdi:pencil" className="text-lg" />
+                                    <Icon icon="mdi:pencil" className="text-sm sm:text-lg" />
                                   </button>
                                   <button
-                                    className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-(--brass) transition hover:border-black/30"
+                                    className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-black/10 text-(--brass) transition hover:border-black/30"
                                     type="button"
                                     aria-label="Hapus jadwal"
                                     onClick={() => {
@@ -661,7 +661,7 @@ export default function AdminPanel() {
                                   >
                                     <Icon
                                       icon="mdi:trash-can-outline"
-                                      className="text-lg"
+                                      className="text-sm sm:text-lg"
                                     />
                                   </button>
                                 </div>
