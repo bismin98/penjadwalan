@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function AdminLogin() {
   return (
     <div className="flex min-h-screen items-center justify-center px-6 py-16">
-      <main className="surface w-full max-w-4xl rounded-[32px] border border-black/5 px-6 py-12 sm:px-12">
+      <main className="surface w-full max-w-4xl rounded-4xl border border-black/5 px-6 py-12 sm:px-12">
         <div className="grid gap-10 md:grid-cols-[1.1fr_1fr]">
           <section className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-[var(--sea)]">
+            <p className="text-xs uppercase tracking-[0.3em] text-(--sea)">
               Panel Admin
             </p>
             <h1 className="font-display text-4xl leading-tight">
@@ -17,7 +17,7 @@ export default function AdminLogin() {
               dan menyampaikan pembaruan penting kepada warga.
             </p>
             <div className="rounded-2xl border border-black/10 bg-white/70 p-5">
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--brass)]">
+              <p className="text-xs uppercase tracking-[0.2em] text-(--brass)">
                 Info singkat
               </p>
               <p className="mt-2 text-sm text-[var(--muted)]">
@@ -25,10 +25,10 @@ export default function AdminLogin() {
               </p>
             </div>
             <div className="flex items-center gap-4 text-sm">
-              <Link className="text-[var(--ink)] underline" href="/">
+              <Link className="text-foreground underline" href="/">
                 Kembali ke halaman awal
               </Link>
-              <Link className="text-[var(--muted)] underline" href="/login/user">
+              <Link className="text-(--muted) underline" href="/login/user">
                 Login sebagai pengguna
               </Link>
             </div>
@@ -37,7 +37,7 @@ export default function AdminLogin() {
           <section className="rounded-3xl border border-black/10 bg-white/80 p-6">
             <form className="space-y-5">
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+                <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   ID Admin
                 </label>
                 <input
@@ -47,7 +47,7 @@ export default function AdminLogin() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+                <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Kata sandi
                 </label>
                 <input
@@ -57,12 +57,12 @@ export default function AdminLogin() {
                 />
               </div>
               <Link
-                className="inline-flex w-full items-center justify-center rounded-full bg-[var(--ink)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--paper)] transition hover:translate-y-[-1px]"
+                className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-(--paper) transition hover:-translate-y-px"
                 href="/admin/panel"
               >
                 Masuk Admin
               </Link>
-              <p className="text-center text-xs text-[var(--muted)]">
+              <p className="text-center text-xs text-(--muted)">
                 Setelah login, Anda akan diarahkan ke panel input jadwal.
               </p>
             </form>

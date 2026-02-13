@@ -607,7 +607,7 @@ export default function AdminPanel() {
                                     {formatTanggal(item.tanggalKegiatan)}
                                   </p>
                                 </button>
-                                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                                <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                                   <button
                                     className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-black/10 text-(--sea) transition hover:border-black/30"
                                     type="button"
