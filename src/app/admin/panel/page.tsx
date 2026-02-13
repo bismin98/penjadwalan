@@ -364,16 +364,16 @@ export default function AdminPanel() {
                 window.localStorage.removeItem("jadwalWalikotaDraft");
               }}
             >
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Input jadwal
                 </p>
                 {editingId ? (
-                  <p className="text-xs text-(--brass)">
+                  <p className="text-[10px] sm:text-xs text-(--brass)">
                     Mode edit aktif. Simpan untuk memperbarui jadwal.
                   </p>
                 ) : null}
-                <div className="grid gap-3 sm:gap-4">
+                <div className="grid gap-2.5 sm:gap-3 md:gap-4">
                   <div className="space-y-1 sm:space-y-2">
                     <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                       Nama kegiatan
@@ -397,7 +397,7 @@ export default function AdminPanel() {
                       Tanggal kegiatan
                     </label>
                     <input
-                      className="field w-full rounded-2xl border px-4 py-3 text-sm"
+                      className="field w-full rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm"
                       required
                       type="date"
                       value={formData.tanggalKegiatan}
@@ -409,12 +409,12 @@ export default function AdminPanel() {
                       }
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 sm:space-y-2">
                     <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                       Tempat kegiatan
                     </label>
                     <input
-                      className="field w-full rounded-2xl border px-4 py-3 text-sm"
+                      className="field w-full rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm"
                       placeholder="Masukkan tempat kegiatan"
                       required
                       type="text"
@@ -427,12 +427,12 @@ export default function AdminPanel() {
                       }
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 sm:space-y-2">
                     <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                       Penanggung jawab kegiatan
                     </label>
                     <input
-                      className="field w-full rounded-2xl border px-4 py-3 text-sm"
+                      className="field w-full rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm"
                       placeholder="Nama penanggung jawab"
                       required
                       type="text"
@@ -445,12 +445,12 @@ export default function AdminPanel() {
                       }
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 sm:space-y-2">
                     <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                       Nomor telepon
                     </label>
                     <input
-                      className="field w-full rounded-2xl border px-4 py-3 text-sm"
+                      className="field w-full rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm"
                       placeholder="Contoh: 08xxxxxxxxxx"
                       required
                       type="tel"
@@ -463,12 +463,12 @@ export default function AdminPanel() {
                       }
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 sm:space-y-2">
                     <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                       Keterangan
                     </label>
                     <textarea
-                      className="field min-h-30 w-full resize-none rounded-2xl border px-4 py-3 text-sm"
+                      className="field min-h-24 sm:min-h-30 w-full resize-none rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm"
                       placeholder="Tambahkan keterangan kegiatan"
                       required
                       value={formData.keterangan}
@@ -481,7 +481,7 @@ export default function AdminPanel() {
                     />
                   </div>
                   <button
-                    className="flex w-full items-center justify-center gap-2 rounded-full bg-(--sea) px-4 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:-translate-y-px"
+                    className="flex w-full items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-(--sea) px-3 py-2 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white transition hover:-translate-y-px"
                     type="submit"
                   >
                     {editingId ? (
@@ -491,9 +491,9 @@ export default function AdminPanel() {
                     )}
                     {editingId ? "Simpan Perubahan" : "Simpan Jadwal"}
                   </button>
-                  <div className="grid gap-2 sm:gap-3 grid-cols-2 sm:grid-cols-2">
+                  <div className="grid gap-2 sm:gap-3 grid-cols-2">
                     <button
-                      className="w-full rounded-full border border-black/15 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-black/40"
+                      className="w-full rounded-full border border-black/15 px-2.5 py-1.5 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-foreground transition hover:border-black/40"
                       type="button"
                       onClick={() => {
                         setFormData(initialFormData);
@@ -504,7 +504,7 @@ export default function AdminPanel() {
                       Reset Form
                     </button>
                     <button
-                      className="flex w-full items-center justify-center gap-2 rounded-full border border-black/15 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-black/40 disabled:opacity-50"
+                      className="flex w-full items-center justify-center gap-1 sm:gap-2 rounded-full border border-black/15 px-2.5 py-1.5 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-foreground transition hover:border-black/40 disabled:opacity-50"
                       type="button"
                       onClick={() => {
                         setEditingId(null);
