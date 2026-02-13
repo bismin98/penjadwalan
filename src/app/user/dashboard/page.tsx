@@ -182,9 +182,8 @@ export default function UserDashboard() {
           </div>
         </header>
 
-        <div className="flex flex-col gap-4 sm:gap-8 lg:grid lg:grid-cols-[1fr_1.2fr] lg:items-start">
-          <div className="flex flex-col gap-2 sm:gap-3 order-1 lg:order-0 lg:self-start">
-            <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6 h-fit">
+        <div className="flex flex-col gap-4 sm:gap-8 lg:grid lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-3">
+          <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6 order-1 lg:order-0 lg:self-start lg:col-start-1 lg:row-start-1 h-fit">
               <div className="mb-3 sm:mb-4 flex items-center justify-between gap-2 sm:gap-4">
                 <button
                   className="rounded-full border border-black/15 p-1.5 sm:p-2 text-base sm:text-lg transition hover:border-black/40"
@@ -252,32 +251,28 @@ export default function UserDashboard() {
                   );
                 })}
               </div>
-            </div>
-
-          <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-1.5 sm:p-3 w-full flex flex-col">
-            <div>
-              <h3 className="font-display mb-1.5 sm:mb-2 text-sm sm:text-base">Legenda</h3>
-              <div className="space-y-0.5 sm:space-y-1">
-                <div className="flex items-center gap-1.5">
-                  <div className="h-4 w-4 rounded bg-(--sea)/15" />
-                  <span className="text-xs sm:text-sm text-(--muted)">Hari ini</span>
+              <div className="mt-4 hidden lg:block border-t border-black/10 pt-4">
+                <h3 className="font-display mb-2 text-base">Legenda</h3>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <div className="h-4 w-4 rounded bg-(--sea)/15" />
+                    <span className="text-sm text-(--muted)">Hari ini</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="h-4 w-4 rounded bg-(--brass)/10" />
+                    <span className="text-sm text-(--muted)">Ada kegiatan</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="h-4 w-4 rounded bg-(--brass)/10" />
-                  <span className="text-xs sm:text-sm text-(--muted)">Ada kegiatan</span>
+                <div className="mt-3 border-t border-black/10 pt-3">
+                  <Link
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 border border-red-600 px-3 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-red-700 hover:border-red-700"
+                    href="/login/user"
+                  >
+                    <Icon icon="mdi:logout" className="text-lg" />
+                    <span>Keluar</span>
+                  </Link>
                 </div>
               </div>
-            </div>
-            <div className="mt-2 sm:mt-3 pt-1.5 sm:pt-2 border-t border-black/10">
-              <Link
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 border border-red-600 px-2 py-1.5 text-xs sm:px-3 sm:py-2 sm:text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-red-700 hover:border-red-700"
-                href="/login/user"
-              >
-                <Icon icon="mdi:logout" className="text-base sm:text-lg" />
-                <span className="hidden sm:inline">Keluar</span>
-              </Link>
-            </div>
-          </div>
           </div>
 
           <section className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6 order-2 lg:order-0 lg:col-start-2 lg:row-start-1">
@@ -404,6 +399,31 @@ export default function UserDashboard() {
               )}
             </div>
           </section>
+
+          <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-1.5 sm:p-3 w-full flex flex-col order-3 lg:hidden">
+            <div>
+              <h3 className="font-display mb-1.5 sm:mb-2 text-sm sm:text-base">Legenda</h3>
+              <div className="space-y-0.5 sm:space-y-1">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-4 w-4 rounded bg-(--sea)/15" />
+                  <span className="text-xs sm:text-sm text-(--muted)">Hari ini</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="h-4 w-4 rounded bg-(--brass)/10" />
+                  <span className="text-xs sm:text-sm text-(--muted)">Ada kegiatan</span>
+                </div>
+              </div>
+            </div>
+            <div className="mt-2 sm:mt-3 pt-1.5 sm:pt-2 border-t border-black/10">
+              <Link
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 border border-red-600 px-2 py-1.5 text-xs sm:px-3 sm:py-2 sm:text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-red-700 hover:border-red-700"
+                href="/login/user"
+              >
+                <Icon icon="mdi:logout" className="text-base sm:text-lg" />
+                <span className="hidden sm:inline">Keluar</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
