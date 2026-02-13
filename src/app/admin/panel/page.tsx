@@ -82,6 +82,7 @@ export default function AdminPanel() {
       setFormData((prev) => ({
         ...prev,
         ...parsed,
+        jamKegiatan: parsed.jamKegiatan ?? prev.jamKegiatan,
       }));
     } catch (error) {
       console.error("Failed to parse saved draft", error);
@@ -104,9 +105,14 @@ export default function AdminPanel() {
       const parsed = JSON.parse(storedList) as Array<
         typeof initialFormData & { id: string }
       >;
-      setJadwalList(parsed);
-      if (parsed.length > 0) {
-        setSelectedId(parsed[0].id);
+      const normalized = parsed.map((item) => ({
+        ...initialFormData,
+        ...item,
+        jamKegiatan: item.jamKegiatan ?? "",
+      }));
+      setJadwalList(normalized);
+      if (normalized.length > 0) {
+        setSelectedId(normalized[0].id);
       }
     } catch (error) {
       console.error("Failed to parse saved list", error);
@@ -187,9 +193,13 @@ export default function AdminPanel() {
     });
   }, [groupedJadwal]);
 
-  const currentMonthKey = useMemo(() => {
+  const [currentMonthKey, setCurrentMonthKey] = useState<string | null>(null);
+
+  useEffect(() => {
     const now = new Date();
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+    setCurrentMonthKey(
+      `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`
+    );
   }, []);
 
   const downloadMonthlyReport = () => {

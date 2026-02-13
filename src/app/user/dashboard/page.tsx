@@ -41,7 +41,11 @@ export default function UserDashboard() {
     }
     try {
       const parsed = JSON.parse(storedList) as typeof jadwalList;
-      setJadwalList(parsed);
+      const normalized = parsed.map((item) => ({
+        ...item,
+        jamKegiatan: item.jamKegiatan ?? "",
+      }));
+      setJadwalList(normalized);
     } catch (error) {
       console.error("Failed to parse saved list", error);
     }
@@ -51,7 +55,11 @@ export default function UserDashboard() {
       if (event.key === "jadwalWalikotaList" && event.newValue) {
         try {
           const updated = JSON.parse(event.newValue) as typeof jadwalList;
-          setJadwalList(updated);
+          const normalized = updated.map((item) => ({
+            ...item,
+            jamKegiatan: item.jamKegiatan ?? "",
+          }));
+          setJadwalList(normalized);
         } catch (error) {
           console.error("Failed to parse updated list", error);
         }
