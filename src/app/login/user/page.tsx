@@ -57,7 +57,7 @@ export default function UserLogin() {
                 />
               </div>
               <Link
-                className="inline-flex w-full items-center justify-center rounded-full border border-black/15 px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-black/40"
+                className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:translate-y-[-1px] hover:shadow-lg"
                 href="/user/dashboard"
               >
                 Masuk Pengguna
