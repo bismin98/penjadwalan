@@ -16,7 +16,7 @@ export default function Home() {
               priority
             />
             <p className="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
-              Portal resmi kota
+              PEMERINTAH KOTA BALIKPAPAN
             </p>
             <div className="space-y-4">
               <h1 className="font-display text-4xl leading-tight sm:text-5xl font-bold bg-gradient-to-r from-green-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
@@ -32,12 +32,12 @@ export default function Home() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-3xl border border-black/10 bg-white/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-              <div className="flex h-full flex-col justify-between gap-6">
+              <div className="flex h-full flex-col justify-between gap-6 items-center text-center">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.25em] text-[var(--sea)]">
                     Panel Admin
                   </p>
-                  <h2 className="font-display text-2xl">Kelola jadwal resmi</h2>
+                  <h2 className="font-display font-bold text-2xl">KELOLA JADWAL RESMI</h2>
                   <p className="text-sm leading-6 text-[var(--muted)]">
                     Tambahkan kegiatan baru, atur prioritas, dan update status
                     agenda secara real time.
@@ -53,19 +53,19 @@ export default function Home() {
             </div>
 
             <div className="rounded-3xl border border-black/10 bg-white/70 p-6">
-              <div className="flex h-full flex-col justify-between gap-6">
+              <div className="flex h-full flex-col justify-between gap-6 items-center text-center">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.25em] text-[var(--brass)]">
                     Login Pengguna
                   </p>
-                  <h2 className="font-display text-2xl">Pantau agenda harian</h2>
+                  <h2 className="font-display font-bold text-2xl">PANTAU AGENDA HARIAN</h2>
                   <p className="text-sm leading-6 text-[var(--muted)]">
                     Lihat jadwal kegiatan, lokasi acara, dan perubahan terbaru
                     dari kantor walikota.
                   </p>
                 </div>
                 <Link
-                  className="inline-flex w-full items-center justify-center rounded-full border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--ink)] transition hover:border-black/40"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:translate-y-[-1px] hover:shadow-lg"
                   href="/login/user"
                 >
                   Login Pengguna
