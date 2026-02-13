@@ -182,8 +182,9 @@ export default function UserDashboard() {
           </div>
         </header>
 
-        <div className="flex flex-col gap-4 sm:gap-8 lg:grid lg:grid-cols-[1fr_1.2fr]">
-          <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6 order-1 lg:order-0">
+        <div className="flex flex-col gap-4 sm:gap-8 lg:grid lg:grid-cols-[1fr_1.2fr] lg:items-start">
+          <div className="flex flex-col gap-2 sm:gap-3 order-1 lg:order-0 lg:self-start">
+            <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6 h-fit">
               <div className="mb-3 sm:mb-4 flex items-center justify-between gap-2 sm:gap-4">
                 <button
                   className="rounded-full border border-black/15 p-1.5 sm:p-2 text-base sm:text-lg transition hover:border-black/40"
@@ -253,7 +254,7 @@ export default function UserDashboard() {
               </div>
             </div>
 
-          <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-1.5 sm:p-3 w-full flex flex-col order-3 lg:order-0">
+          <div className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-1.5 sm:p-3 w-full flex flex-col">
             <div>
               <h3 className="font-display mb-1.5 sm:mb-2 text-sm sm:text-base">Legenda</h3>
               <div className="space-y-0.5 sm:space-y-1">
@@ -276,6 +277,7 @@ export default function UserDashboard() {
                 <span className="hidden sm:inline">Keluar</span>
               </Link>
             </div>
+          </div>
           </div>
 
           <section className="rounded-2xl sm:rounded-3xl border border-black/10 bg-white/70 p-3 sm:p-6 order-2 lg:order-0 lg:col-start-2 lg:row-start-1">
@@ -332,7 +334,7 @@ export default function UserDashboard() {
                     return (
                       <button
                         key={item.id}
-                        className={`w-full rounded-2xl border p-4 text-left transition ${itemColor.bg} ${itemColor.border} hover:opacity-80`}
+                        className={`w-full min-w-0 max-w-full overflow-hidden rounded-2xl border p-4 text-left transition ${itemColor.bg} ${itemColor.border} hover:opacity-80`}
                         type="button"
                         onClick={() => {
                           setSelectedDetail(item);
@@ -342,14 +344,14 @@ export default function UserDashboard() {
                         <p className={`text-xs uppercase tracking-[0.25em] ${itemColor.text}`}>
                           {formatTanggal(item.tanggalKegiatan)}
                         </p>
-                        <p className={`mt-2 font-semibold ${itemColor.text}`}>
+                        <p className={`mt-2 break-words whitespace-normal font-semibold ${itemColor.text} max-w-full`}>
                           {item.namaKegiatan}
                         </p>
                         <p
-                          className={`mt-1 inline-flex items-center gap-1.5 text-xs ${itemColor.text} opacity-75`}
+                          className={`mt-1 flex min-w-0 items-start gap-1.5 text-xs ${itemColor.text} opacity-75`}
                         >
-                          <Icon icon="mdi:map-marker-outline" className="text-sm" />
-                          {item.tempatKegiatan}
+                          <Icon icon="mdi:map-marker-outline" className="mt-0.5 text-sm" />
+                          <span className="break-words">{item.tempatKegiatan}</span>
                         </p>
                       </button>
                     );
@@ -375,7 +377,7 @@ export default function UserDashboard() {
                       return (
                         <button
                           key={item.id}
-                          className={`w-full rounded-2xl border p-4 text-left transition ${itemColor.bg} ${itemColor.border} hover:opacity-80`}
+                          className={`w-full min-w-0 max-w-full overflow-hidden rounded-2xl border p-4 text-left transition ${itemColor.bg} ${itemColor.border} hover:opacity-80`}
                           type="button"
                           onClick={() => {
                             setSelectedDetail(item);
@@ -385,14 +387,14 @@ export default function UserDashboard() {
                           <p className={`text-xs uppercase tracking-[0.25em] ${itemColor.text}`}>
                             {formatTanggal(item.tanggalKegiatan)}
                           </p>
-                          <p className={`mt-2 font-semibold ${itemColor.text}`}>
+                          <p className={`mt-2 break-words whitespace-normal font-semibold ${itemColor.text} max-w-full`}>
                             {item.namaKegiatan}
                           </p>
                           <p
-                            className={`mt-1 inline-flex items-center gap-1.5 text-xs ${itemColor.text} opacity-75`}
+                            className={`mt-1 flex min-w-0 items-start gap-1.5 text-xs ${itemColor.text} opacity-75`}
                           >
-                            <Icon icon="mdi:map-marker-outline" className="text-sm" />
-                            {item.tempatKegiatan}
+                            <Icon icon="mdi:map-marker-outline" className="mt-0.5 text-sm" />
+                            <span className="break-words">{item.tempatKegiatan}</span>
                           </p>
                         </button>
                       );
@@ -440,7 +442,7 @@ export default function UserDashboard() {
                 return (
                   <button
                     key={event.id}
-                    className={`w-full rounded-2xl border p-4 text-left transition ${eventColor.bg} ${eventColor.border} hover:opacity-80`}
+                    className={`w-full min-w-0 max-w-full overflow-hidden rounded-2xl border p-4 text-left transition ${eventColor.bg} ${eventColor.border} hover:opacity-80`}
                     type="button"
                     onClick={() => {
                       setSelectedDetail(event);
@@ -448,10 +450,10 @@ export default function UserDashboard() {
                       setDayEventsDialog(null);
                     }}
                   >
-                    <p className={`text-xs uppercase tracking-[0.25em] ${eventColor.text} font-semibold`}>
+                    <p className={`text-xs uppercase tracking-[0.25em] ${eventColor.text} font-semibold break-words whitespace-normal max-w-full`}>
                       {event.namaKegiatan}
                     </p>
-                    <p className={`mt-2 text-sm ${eventColor.text} opacity-75`}>
+                    <p className={`mt-2 text-sm ${eventColor.text} opacity-75 break-words`}>
                       {event.tempatKegiatan}
                     </p>
                   </button>
@@ -494,12 +496,12 @@ export default function UserDashboard() {
                 <Icon icon="mdi:close" className="text-xl" />
               </button>
             </div>
-            <div className="mt-6 space-y-4 rounded-2xl border border-black/10 bg-white/80 p-5">
+            <div className="mt-6 space-y-4 rounded-2xl border border-black/10 bg-white/80 p-5 min-w-0">
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Tanggal kegiatan
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {formatTanggal(selectedDetail.tanggalKegiatan)}
                 </p>
               </div>
@@ -507,7 +509,7 @@ export default function UserDashboard() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Tempat kegiatan
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedDetail.tempatKegiatan}
                 </p>
               </div>
@@ -515,7 +517,7 @@ export default function UserDashboard() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Penanggung jawab
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedDetail.penanggungJawab}
                 </p>
               </div>
@@ -523,7 +525,7 @@ export default function UserDashboard() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Nomor telepon
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedDetail.nomorTelepon}
                 </p>
               </div>
@@ -531,7 +533,7 @@ export default function UserDashboard() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Keterangan
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedDetail.keterangan}
                 </p>
               </div>

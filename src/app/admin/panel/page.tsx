@@ -586,7 +586,7 @@ export default function AdminPanel() {
                               )?.[1] ?? []).map((item) => (
                               <div
                                 key={item.id}
-                                className={`flex items-center justify-between gap-2 sm:gap-3 rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-left text-xs sm:text-sm transition ${
+                                className={`flex items-center justify-between gap-2 sm:gap-3 rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-left text-xs sm:text-sm transition min-w-0 max-w-full overflow-hidden ${
                                   selectedId === item.id
                                     ? "border-black/30 bg-white"
                                     : "border-black/10 bg-white/60 hover:border-black/30"
@@ -600,7 +600,7 @@ export default function AdminPanel() {
                                     setIsDetailOpen(true);
                                   }}
                                 >
-                                  <p className="font-semibold text-foreground truncate">
+                                  <p className="font-semibold text-foreground break-words">
                                     {item.namaKegiatan || "(Tanpa judul)"}
                                   </p>
                                   <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-(--muted)">
@@ -736,7 +736,7 @@ export default function AdminPanel() {
                 <p className="text-xs uppercase tracking-[0.3em] text-(--sea)">
                   Detail Jadwal
                 </p>
-                <h3 className="font-display text-2xl">
+                <h3 className="font-display text-2xl break-words">
                   {selectedJadwal.namaKegiatan || "(Tanpa judul)"}
                 </h3>
               </div>
@@ -749,12 +749,12 @@ export default function AdminPanel() {
                 <Icon icon="mdi:close" className="text-xl" />
               </button>
             </div>
-            <div className="mt-6 space-y-4 rounded-2xl border border-black/10 bg-white/80 p-5">
+            <div className="mt-6 space-y-4 rounded-2xl border border-black/10 bg-white/80 p-5 min-w-0">
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Tanggal kegiatan
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {formatTanggal(selectedJadwal.tanggalKegiatan)}
                 </p>
               </div>
@@ -762,7 +762,7 @@ export default function AdminPanel() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Tempat kegiatan
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedJadwal.tempatKegiatan || "-"}
                 </p>
               </div>
@@ -770,7 +770,7 @@ export default function AdminPanel() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Penanggung jawab
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedJadwal.penanggungJawab || "-"}
                 </p>
               </div>
@@ -778,7 +778,7 @@ export default function AdminPanel() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Nomor telepon
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedJadwal.nomorTelepon || "-"}
                 </p>
               </div>
@@ -786,7 +786,7 @@ export default function AdminPanel() {
                 <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
                   Keterangan
                 </p>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold text-foreground break-words">
                   {selectedJadwal.keterangan || "-"}
                 </p>
               </div>
