@@ -16,15 +16,7 @@ export default function AdminLogin() {
       <main className="w-full max-w-md">
         {/* Header */}
         <div className="mb-8 text-center">
-          <Link 
-            href="/" 
-            className="mb-6 inline-flex items-center gap-2 text-sm text-[--muted] transition-colors hover:text-[--ink]"
-          >
-            <Icon icon="mdi:arrow-left" className="text-lg" />
-            Kembali
-          </Link>
-          
-          <div className="mt-6">
+          <div>
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-orange-500 via-pink-500 to-purple-500">
               <Icon icon="mdi:shield-account" className="text-3xl text-white" />
             </div>
