@@ -9,6 +9,7 @@ export default function AdminPanel() {
   const initialFormData = {
     namaKegiatan: "",
     tanggalKegiatan: "",
+    jamKegiatan: "",
     tempatKegiatan: "",
     penanggungJawab: "",
     nomorTelepon: "",
@@ -197,7 +198,7 @@ export default function AdminPanel() {
         "REKAPAN KEGIATAN WALIKOTA BALIKPAPAN - PER BULAN",
       ],
       [],
-      ["No", "Nama Kegiatan", "Tanggal", "Tempat", "Penanggung Jawab", "Nomor Telepon", "Keterangan"],
+      ["No", "Nama Kegiatan", "Tanggal", "Jam", "Tempat", "Penanggung Jawab", "Nomor Telepon", "Keterangan"],
     ];
 
     let rowNum = 4;
@@ -208,7 +209,7 @@ export default function AdminPanel() {
         key === "Tanpa tanggal"
           ? key
           : formatMonthYear(key);
-      data.push([monthName, "", "", "", "", "", ""]);
+      data.push([monthName, "", "", "", "", "", "", ""]);
       rowNum++;
 
       groupedJadwal[key].forEach((item) => {
@@ -216,6 +217,7 @@ export default function AdminPanel() {
           itemNum.toString(),
           item.namaKegiatan,
           formatTanggal(item.tanggalKegiatan),
+          item.jamKegiatan || "-",
           item.tempatKegiatan,
           item.penanggungJawab,
           item.nomorTelepon,
@@ -233,6 +235,7 @@ export default function AdminPanel() {
       { wch: 5 },
       { wch: 25 },
       { wch: 15 },
+      { wch: 10 },
       { wch: 20 },
       { wch: 20 },
       { wch: 15 },
@@ -264,7 +267,7 @@ export default function AdminPanel() {
     const data: (string | number)[][] = [
       ["REKAPAN KEGIATAN WALIKOTA BALIKPAPAN - PER TAHUN"],
       [],
-      ["No", "Nama Kegiatan", "Tanggal", "Tempat", "Penanggung Jawab", "Nomor Telepon", "Keterangan"],
+      ["No", "Nama Kegiatan", "Tanggal", "Jam", "Tempat", "Penanggung Jawab", "Nomor Telepon", "Keterangan"],
     ];
 
     let itemNum = 1;
@@ -276,13 +279,14 @@ export default function AdminPanel() {
         return Number(b) - Number(a);
       })
       .forEach((year) => {
-        data.push([year === "Tanpa tanggal" ? year : `Tahun ${year}`, "", "", "", "", "", ""]);
+        data.push([year === "Tanpa tanggal" ? year : `Tahun ${year}`, "", "", "", "", "", "", ""]);
 
         yearMap[year].forEach((item) => {
           data.push([
             itemNum.toString(),
             item.namaKegiatan,
             formatTanggal(item.tanggalKegiatan),
+            item.jamKegiatan || "-",
             item.tempatKegiatan,
             item.penanggungJawab,
             item.nomorTelepon,
@@ -298,6 +302,7 @@ export default function AdminPanel() {
       { wch: 5 },
       { wch: 25 },
       { wch: 15 },
+      { wch: 10 },
       { wch: 20 },
       { wch: 20 },
       { wch: 15 },
@@ -405,6 +410,23 @@ export default function AdminPanel() {
                         setFormData((prev) => ({
                           ...prev,
                           tanggalKegiatan: event.target.value,
+                        }))
+                      }
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-[0.2em] text-(--muted)">
+                      Jam kegiatan
+                    </label>
+                    <input
+                      className="field w-full rounded-xl sm:rounded-2xl border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm"
+                      required
+                      type="time"
+                      value={formData.jamKegiatan}
+                      onChange={(event) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          jamKegiatan: event.target.value,
                         }))
                       }
                     />
@@ -605,6 +627,7 @@ export default function AdminPanel() {
                                   </p>
                                   <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-(--muted)">
                                     {formatTanggal(item.tanggalKegiatan)}
+                                    {item.jamKegiatan ? ` • ${item.jamKegiatan}` : ""}
                                   </p>
                                 </button>
                                 <div className="flex items-center gap-1 sm:gap-2 shrink-0">
@@ -616,6 +639,7 @@ export default function AdminPanel() {
                                       setFormData({
                                         namaKegiatan: item.namaKegiatan,
                                         tanggalKegiatan: item.tanggalKegiatan,
+                                        jamKegiatan: item.jamKegiatan || "",
                                         tempatKegiatan: item.tempatKegiatan,
                                         penanggungJawab: item.penanggungJawab,
                                         nomorTelepon: item.nomorTelepon,
@@ -756,6 +780,14 @@ export default function AdminPanel() {
                 </p>
                 <p className="text-sm font-semibold text-foreground break-words">
                   {formatTanggal(selectedJadwal.tanggalKegiatan)}
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
+                  Jam kegiatan
+                </p>
+                <p className="text-sm font-semibold text-foreground break-words">
+                  {selectedJadwal.jamKegiatan || "-"}
                 </p>
               </div>
               <div className="space-y-2">

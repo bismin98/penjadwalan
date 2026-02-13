@@ -15,6 +15,7 @@ export default function UserDashboard() {
       id: string;
       namaKegiatan: string;
       tanggalKegiatan: string;
+      jamKegiatan: string;
       tempatKegiatan: string;
       penanggungJawab: string;
       nomorTelepon: string;
@@ -338,6 +339,7 @@ export default function UserDashboard() {
                       >
                         <p className={`text-xs uppercase tracking-[0.25em] ${itemColor.text}`}>
                           {formatTanggal(item.tanggalKegiatan)}
+                          {item.jamKegiatan ? ` • ${item.jamKegiatan}` : ""}
                         </p>
                         <p className={`mt-2 break-words whitespace-normal font-semibold ${itemColor.text} max-w-full`}>
                           {item.namaKegiatan}
@@ -381,6 +383,7 @@ export default function UserDashboard() {
                         >
                           <p className={`text-xs uppercase tracking-[0.25em] ${itemColor.text}`}>
                             {formatTanggal(item.tanggalKegiatan)}
+                            {item.jamKegiatan ? ` • ${item.jamKegiatan}` : ""}
                           </p>
                           <p className={`mt-2 break-words whitespace-normal font-semibold ${itemColor.text} max-w-full`}>
                             {item.namaKegiatan}
@@ -523,6 +526,14 @@ export default function UserDashboard() {
                 </p>
                 <p className="text-sm font-semibold text-foreground break-words">
                   {formatTanggal(selectedDetail.tanggalKegiatan)}
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-[0.2em] text-(--muted)">
+                  Jam kegiatan
+                </p>
+                <p className="text-sm font-semibold text-foreground break-words">
+                  {selectedDetail.jamKegiatan || "-"}
                 </p>
               </div>
               <div className="space-y-2">
