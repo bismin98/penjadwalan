@@ -9,8 +9,8 @@ export default function AdminLogin() {
     <div className="flex min-h-screen items-center justify-center p-4 sm:p-6">
       {/* Background decorative elements */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-blue-200/30 blur-3xl" />
-        <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl" />
+        <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-orange-200/30 blur-3xl" />
+        <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-purple-200/30 blur-3xl" />
       </div>
 
       <main className="w-full max-w-md">
@@ -25,7 +25,7 @@ export default function AdminLogin() {
           </Link>
           
           <div className="mt-6">
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[--sea]">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-orange-500 via-pink-500 to-purple-500">
               <Icon icon="mdi:shield-account" className="text-3xl text-white" />
             </div>
             <h1 className="font-display text-3xl font-bold text-[--ink]">
@@ -77,7 +77,7 @@ export default function AdminLogin() {
             </div>
 
             <Button
-              variant="primary"
+              variant="gradient"
               type="button"
               className="w-full"
               onClick={() => window.location.href = "/admin/panel"}
@@ -107,10 +107,10 @@ export default function AdminLogin() {
         </div>
 
         {/* Footer Note */}
-        <div className="mt-6 rounded-2xl bg-amber-50/80 px-4 py-3 text-center">
+        <div className="mt-6 rounded-2xl bg-blue-50/80 px-4 py-3 text-center">
           <div className="flex items-start gap-2 text-left">
-            <Icon icon="mdi:shield-alert" className="mt-0.5 text-lg text-amber-600" />
-            <p className="text-xs text-amber-900">
+            <Icon icon="mdi:information" className="mt-0.5 text-lg text-blue-600" />
+            <p className="text-xs text-blue-900">
               Pastikan data agenda mencakup lokasi, waktu, dan status terkini
             </p>
           </div>
